@@ -1,0 +1,5 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,MEDIUM,Volume Spike,SENT,30 days,7 days,>5x,"$5,000",ENABLED,2025-02-18,
+2,MEDIUM,Volume Spike,RECEIVED,30 days,7 days,>5x,"$5,000",ENABLED,2025-02-18,
+3,MEDIUM,Counterparty Surge,SENT,30 days,7 days,≥10 new,"$2,000",ENABLED,2025-02-18,
+4,MEDIUM,Counterparty Surge,RECEIVED,30 days,7 days,≥10 new,"$2,000",ENABLED,2025-02-18,

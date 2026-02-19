@@ -1,0 +1,9 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,HIGH,Passthrough Mule,BOTH,>80%,"$5,000",Any,≥3,48h,ENABLED,2025-02-18
+2,HIGH,Passthrough Mule,BOTH,>90%,"$1,000",Any,≥2,24h,ENABLED,2025-02-18
+3,HIGH,New Account Passthrough,RECEIVED,>70%,"$5,000",<30 days,≥1,48h,ENABLED,2025-02-18
+4,HIGH,New Account Passthrough,SENT,>70%,"$5,000",<30 days,≥1,48h,ENABLED,2025-02-18
+5,MEDIUM,Fee Extraction,BOTH,85-95%,"$2,000",Any,≥5,7d,ENABLED,2025-02-18
+6,MEDIUM,Fee Extraction,BOTH,85-95%,$500,<30 days,≥3,7d,ENABLED,2025-02-18
+7,MEDIUM,Network Cluster,BOTH,>70%,"$1,000",Any,≥3 accounts,30d,ENABLED,2025-02-18
+8,MEDIUM,Network Cluster,BOTH,>70%,"$5,000",Any,≥5 accounts,30d,ENABLED,2025-02-18

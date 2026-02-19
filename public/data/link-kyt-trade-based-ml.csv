@@ -1,0 +1,7 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,HIGH,Price Deviation,BOTH,>5%,"$5,000",Any,–,ENABLED,2025-02-18,
+2,HIGH,Price Deviation,BOTH,>10%,"$1,000",Any,–,ENABLED,2025-02-18,
+3,MEDIUM,High-Risk Counterparty,BOTH,Any,"$2,000",FATF Grey/Black,–,ENABLED,2025-02-18,
+4,MEDIUM,High-Risk Counterparty,BOTH,>5%,$500,FATF Grey/Black,–,ENABLED,2025-02-18,
+5,MEDIUM,Volume Mismatch,BOTH,–,"$50,000",Any,30d,ENABLED,2025-02-18,
+6,MEDIUM,Volume Mismatch,BOTH,–,"$500,000",Any,90d,ENABLED,2025-02-18,

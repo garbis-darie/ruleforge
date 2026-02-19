@@ -1,0 +1,5 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,HIGH,Bridge Origin Deposit,RECEIVED,Bridge Contract,"$5,000",≥1,–,ENABLED,2025-02-18,
+2,HIGH,Bridge Origin Deposit,RECEIVED,Bridge Contract,"$25,000",≥1,–,ENABLED,2025-02-18,
+3,HIGH,Rapid Chain-Hop,RECEIVED,Multi-Chain,"$10,000",≥2,24h,ENABLED,2025-02-18,
+4,HIGH,Rapid Chain-Hop,SENT,Multi-Chain,"$10,000",≥2,24h,ENABLED,2025-02-18,

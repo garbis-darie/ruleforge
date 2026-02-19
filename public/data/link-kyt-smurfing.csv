@@ -1,0 +1,5 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,HIGH,Multi-Source Convergence,RECEIVED,AGGREGATE,"$10,000",∞,≥4,24h,ENABLED,2025-02-18
+2,HIGH,Multi-Source Convergence,RECEIVED,AGGREGATE,"$25,000",∞,≥4,72h,ENABLED,2025-02-18
+3,HIGH,Fan-Out Distribution,SENT,FAN-OUT,"$5,000",∞,≥5,24h,ENABLED,2025-02-18
+4,HIGH,Fan-Out Distribution,SENT,FAN-OUT,"$15,000",∞,≥5,72h,ENABLED,2025-02-18

@@ -1,0 +1,5 @@
+Rule,Severity,Category,Direction,Exposure,Min_USD,Max_USD,Window,Tx_Count,Status,Start_Date
+1,SEVERE,Sanctioned Entity,SENT,DIRECT,$0,∞,0%,ENABLED,2025-02-17,
+2,SEVERE,Sanctioned Entity,RECEIVED,DIRECT,$0,∞,0%,ENABLED,2025-02-17,
+3,SEVERE,Sanctioned Entity,SENT,INDIRECT,$0,∞,1%,ENABLED,2025-02-17,
+4,SEVERE,Sanctioned Entity,RECEIVED,INDIRECT,$0,∞,1%,ENABLED,2025-02-17,
