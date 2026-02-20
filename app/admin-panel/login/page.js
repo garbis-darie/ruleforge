@@ -22,7 +22,7 @@ export default function AdminLogin() {
             });
 
             if (res.ok) {
-                router.push('/admin-04e3521103a54579');
+                router.push('/admin-panel');
             } else {
                 setError('Invalid credentials');
             }
@@ -38,7 +38,7 @@ export default function AdminLogin() {
             <div className="download-card" style={{ maxWidth: '400px' }}>
                 <div className="download-icon">🔐</div>
                 <h1>Admin Access</h1>
-                <p className="download-sub">LINK KYT Operations Hub</p>
+                <p className="download-sub">RuleForge Operations Hub</p>
                 {error && <p style={{ color: 'var(--warning)', marginBottom: '16px', fontSize: '14px' }}>{error}</p>}
                 <form onSubmit={handleLogin} style={{ textAlign: 'left' }}>
                     <div style={{ marginBottom: '16px' }}>

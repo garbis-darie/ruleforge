@@ -37,13 +37,13 @@ export async function GET(request, { params }) {
         }
 
         // Serve the CSV file
-        const filePath = join(process.cwd(), 'public', 'data', `link-kyt-${slug}.csv`);
+        const filePath = join(process.cwd(), 'public', 'data', `ruleforge-${slug}.csv`);
         if (!existsSync(filePath)) {
             return NextResponse.json({ error: 'File not found. Please contact support.' }, { status: 404 });
         }
 
         const fileBuffer = readFileSync(filePath);
-        const filename = `link-kyt-${slug}.csv`;
+        const filename = `ruleforge-${slug}.csv`;
 
         return new NextResponse(fileBuffer, {
             status: 200,

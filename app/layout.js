@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-    title: 'LINK KYT — Transaction Monitoring Threshold Templates',
+    title: 'RuleForge — Transaction Monitoring Threshold Templates',
     description: 'Pre-built alert rules for crypto compliance. 11 risk categories, 58 rules. Import-ready CSV templates for Chainalysis KYT, Elliptic, and any TMS.',
     icons: { icon: '/favicon.svg' },
 };

@@ -23,7 +23,7 @@ export async function POST(request) {
         const slug = formData.get('slug');
         const tier = formData.get('tier');
 
-        const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_SITE_URL || 'https://link-kyt.io';
+        const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_SITE_URL || 'https://ruleforge.io';
         const { categories, fullPackPrice } = await getProducts();
 
         let lineItems;
@@ -36,7 +36,7 @@ export async function POST(request) {
                     currency: 'gbp',
                     unit_amount: fullPackPrice,
                     product_data: {
-                        name: 'LINK KYT — Full Pack',
+                        name: 'RuleForge — Full Pack',
                         description: `All ${categories.length} risk categories. ${categories.reduce((s, c) => s + (c.rules || 0), 0)} alert rules. Complete governance + implementation coverage.`,
                     },
                 },
@@ -54,7 +54,7 @@ export async function POST(request) {
                     currency: 'gbp',
                     unit_amount: category.price || 7900,
                     product_data: {
-                        name: `LINK KYT — ${category.name}`,
+                        name: `RuleForge — ${category.name}`,
                         description: `${category.rules || 0} pre-built alert rules for ${(category.description || '').toLowerCase()}. Includes governance documentation (PDF) and implementation rules (CSV).`,
                     },
                 },

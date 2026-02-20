@@ -212,7 +212,7 @@ export default async function Home() {
                                 <li>Priority email support</li>
                                 <li>Custom calibration guidance</li>
                             </ul>
-                            <a href="mailto:hello@garbisdarie.com?subject=LINK%20KYT%20Enterprise" className="btn btn-outline">Contact Us</a>
+                            <a href="mailto:hello@example.com?subject=LINK%20KYT%20Enterprise" className="btn btn-outline">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -239,9 +239,9 @@ export default async function Home() {
                 <div className="container">
                     <div className="disclaimer-box">
                         <h3>⚠️ Important Disclaimer</h3>
-                        <p>The templates, threshold configurations, and governance documentation provided by LINK KYT are <strong>data analytics formulas and parametric reference materials</strong>, not legal, regulatory, or compliance advice. They are derived from publicly available regulatory guidance and industry research.</p>
+                        <p>The templates, threshold configurations, and governance documentation provided by RuleForge are <strong>data analytics formulas and parametric reference materials</strong>, not legal, regulatory, or compliance advice. They are derived from publicly available regulatory guidance and industry research.</p>
                         <p>Users must independently verify all thresholds, calibrate configurations to their specific business context, transaction volumes, and risk appetite, and obtain qualified legal and compliance counsel before deploying any monitoring rules in a production environment.</p>
-                        <p>LINK KYT accepts no liability for regulatory outcomes, enforcement actions, or compliance failures arising from the use of these templates.</p>
+                        <p>RuleForge accepts no liability for regulatory outcomes, enforcement actions, or compliance failures arising from the use of these templates.</p>
                     </div>
                 </div>
             </section>
@@ -264,7 +264,7 @@ export default async function Home() {
                         </div>
                     </div>
                     <div className="footer-bottom">
-                        <p>© 2026 LINK KYT. All rights reserved.</p>
+                        <p>© 2026 RuleForge. All rights reserved.</p>
                     </div>
                 </div>
             </footer>

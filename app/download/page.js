@@ -41,7 +41,7 @@ function DownloadContent() {
                     <h1>Something went wrong</h1>
                     <p className="download-error">{state.error}</p>
                     <br />
-                    <a href="/" className="btn btn-outline">← Back to LINK KYT</a>
+                    <a href="/" className="btn btn-outline">← Back to RuleForge</a>
                 </div>
             </div>
         );
@@ -70,7 +70,7 @@ function DownloadContent() {
                     ))}
                 </div>
                 <p className="download-help">
-                    Files also sent to your email. Questions? <a href="mailto:hello@garbisdarie.com">Contact us</a>
+                    Files also sent to your email. Questions? <a href="mailto:hello@example.com">Contact us</a>
                 </p>
             </div>
         </div>

@@ -15,10 +15,10 @@ export default function AdminDashboard() {
         fetch('/api/admin/auth')
             .then(r => r.json())
             .then(d => {
-                if (!d.authenticated) router.push('/admin-04e3521103a54579/login');
+                if (!d.authenticated) router.push('/admin-panel/login');
                 else setAuthenticated(true);
             })
-            .catch(() => router.push('/admin-04e3521103a54579/login'));
+            .catch(() => router.push('/admin-panel/login'));
     }, [router]);
 
     // Load products
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
 
     const logout = async () => {
         await fetch('/api/admin/auth', { method: 'DELETE' });
-        router.push('/admin-04e3521103a54579/login');
+        router.push('/admin-panel/login');
     };
 
     if (!authenticated) {
@@ -214,8 +214,8 @@ export default function AdminDashboard() {
                             <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '12px' }}>Quick Links</h3>
                             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                                 <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 16px' }}>Stripe Dashboard ↗</a>
-                                <a href="https://vercel.com/garbis-daries-projects/lynk-kyt-app" target="_blank" rel="noopener" className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 16px' }}>Vercel Dashboard ↗</a>
-                                <a href="https://link-kyt.io" target="_blank" rel="noopener" className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 16px' }}>Live Site ↗</a>
+                                <a href="https://vercel.com/your-project/ruleforge" target="_blank" rel="noopener" className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 16px' }}>Vercel Dashboard ↗</a>
+                                <a href="https://ruleforge.io" target="_blank" rel="noopener" className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 16px' }}>Live Site ↗</a>
                             </div>
                         </div>
                     </div>

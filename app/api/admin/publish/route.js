@@ -69,14 +69,14 @@ export async function POST(request) {
         }
 
         // Write to public/data
-        const filePath = join(process.cwd(), 'public', 'data', `link-kyt-${slug}.csv`);
+        const filePath = join(process.cwd(), 'public', 'data', `ruleforge-${slug}.csv`);
         writeFileSync(filePath, csv);
 
         return NextResponse.json({
             success: true,
             slug,
             rules: rules.length,
-            filename: `link-kyt-${slug}.csv`,
+            filename: `ruleforge-${slug}.csv`,
         });
     } catch (err) {
         console.error('Publish error:', err);

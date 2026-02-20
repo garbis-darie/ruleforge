@@ -39,11 +39,11 @@ export async function POST(request) {
             const attachments = [];
             const fileNames = [];
             for (const slug of slugs) {
-                const filePath = join(process.cwd(), 'public', 'data', `link-kyt-${slug}.csv`);
+                const filePath = join(process.cwd(), 'public', 'data', `ruleforge-${slug}.csv`);
                 if (existsSync(filePath)) {
                     const content = readFileSync(filePath);
                     attachments.push({
-                        filename: `link-kyt-${slug}.csv`,
+                        filename: `ruleforge-${slug}.csv`,
                         content: content.toString('base64'),
                     });
                     const cat = categories.find(c => c.slug === slug);
@@ -53,25 +53,25 @@ export async function POST(request) {
 
             const productName = tier === 'full-pack'
                 ? 'Full Pack (All 11 Categories)'
-                : fileNames[0] || 'LINK KYT Product';
+                : fileNames[0] || 'RuleForge Product';
 
-            const fileList = fileNames.map(n => `<li>📄 LINK KYT — ${n} (CSV)</li>`).join('');
+            const fileList = fileNames.map(n => `<li>📄 RuleForge — ${n} (CSV)</li>`).join('');
 
             // Send to buyer
             await resend.emails.send({
-                from: process.env.FROM_EMAIL || 'LINK KYT <noreply@resend.dev>',
+                from: process.env.FROM_EMAIL || 'RuleForge <noreply@resend.dev>',
                 to: customerEmail,
-                subject: `Your LINK KYT files are ready — ${productName}`,
+                subject: `Your RuleForge files are ready — ${productName}`,
                 html: `
           <div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px;">
-            <h1 style="color:#111;">◈ LINK KYT</h1>
+            <h1 style="color:#111;">◈ RuleForge</h1>
             <h2>Your order is ready 🎉</h2>
             <p>Thank you for purchasing <strong>${productName}</strong>. Your files are attached.</p>
             <h3>Files Included</h3>
             <ul>${fileList}</ul>
             <p><strong>How to use:</strong> Import the CSV into your TMS (Chainalysis KYT, Elliptic, etc). Adjust thresholds to your volume profile.</p>
             <hr>
-            <p style="color:#888;font-size:12px;">© 2026 LINK KYT. These are data analytics configurations, not compliance advice.</p>
+            <p style="color:#888;font-size:12px;">© 2026 RuleForge. These are data analytics configurations, not compliance advice.</p>
           </div>
         `,
                 attachments,
@@ -79,8 +79,8 @@ export async function POST(request) {
 
             // Notify admin
             await resend.emails.send({
-                from: process.env.FROM_EMAIL || 'LINK KYT <noreply@resend.dev>',
-                to: 'hello@garbisdarie.com',
+                from: process.env.FROM_EMAIL || 'RuleForge <noreply@resend.dev>',
+                to: 'hello@example.com',
                 subject: `💰 New sale — ${productName} (£${session.amount_total / 100})`,
                 text: `Customer: ${customerEmail}\nProduct: ${productName}\nAmount: £${session.amount_total / 100}\nFiles: ${fileNames.join(', ')}`,
             });

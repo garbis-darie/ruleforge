@@ -26,13 +26,13 @@ export async function GET(request) {
         const files = slugs
             .map(slug => {
                 const cat = categories.find(c => c.slug === slug);
-                return cat ? { slug: cat.slug, name: `LINK KYT — ${cat.name}` } : null;
+                return cat ? { slug: cat.slug, name: `RuleForge — ${cat.name}` } : null;
             })
             .filter(Boolean);
 
         const productName = tier === 'full-pack'
             ? 'Full Pack (All 11 Categories)'
-            : files[0]?.name || 'LINK KYT Product';
+            : files[0]?.name || 'RuleForge Product';
 
         return NextResponse.json({ productName, files, tier });
     } catch (err) {
