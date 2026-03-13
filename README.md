@@ -1,6 +1,6 @@
 # RuleForge
 
-**A full-stack RegTech SaaS platform for compliance template management, built with Next.js 15, Stripe, and Vercel.**
+> A full-stack RegTech SaaS platform for compliance template management — built by a compliance professional, not just a developer.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
 ![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?logo=stripe)
@@ -8,17 +8,37 @@
 
 ---
 
-## What It Does
+## The Problem
 
-RuleForge is a digital product marketplace that sells compliance monitoring templates to financial institutions. Customers buy individual risk categories or a full pack, receiving governance documentation (PDF) and implementation rules (CSV) for their transaction monitoring systems.
+Transaction monitoring teams at financial institutions and VASPs spend significant time manually configuring rule sets, thresholds, and governance documentation for their KYT/AML systems. Templates are inconsistent across organisations, difficult to version-control, and not commercially available in a structured, deployable format.
 
-### Key Features
+## What RuleForge Solves
 
-- **Customer-facing landing page** — Premium dark-themed design, dynamic product display, responsive
-- **Stripe checkout** — One-time payments, dynamic session creation, webhook-verified downloads
-- **Admin panel** — Secure ops dashboard for product management and publishing
-- **Cloud data persistence** — Vercel Blob storage for product config and templates
+RuleForge is a digital product marketplace where compliance teams can purchase ready-to-deploy transaction monitoring templates — complete with governance documentation (PDF) and system-ready configuration rules (CSV) for platforms like Chainalysis KYT, TRM Labs, and Crystal Blockchain.
+
+This project was built from compliance-domain knowledge first, then engineered to support it.
+
+---
+
+## Key Features
+
+- **Customer-facing storefront** — Dynamic product catalogue, premium dark-themed UI, mobile-responsive
+- **Stripe-powered checkout** — One-time payments, webhook-verified downloads, secure session handling
+- **Admin dashboard** — Full product CRUD, publishing pipeline, template management
+- **Cloud-native storage** — Vercel Blob for product config and compliance templates
 - **Auto-deploy pipeline** — GitHub → Vercel, live in ~45 seconds
+
+---
+
+## Domain Context
+
+Templates distributed through RuleForge are structured around:
+
+- **Risk category segmentation** — high-risk jurisdictions, mixer/tumbler exposure, darknet market activity, sanctions screening
+- **Threshold calibration guidelines** — tuned for transaction monitoring systems to reduce false positives while maintaining regulatory coverage
+- **Governance documentation** — aligned to FATF Recommendations and EU AMLD frameworks
+
+This isn't a generic SaaS scaffold. The product catalogue, data structures, and template formats were designed by someone with 4+ years operating inside live transaction monitoring systems across centralised exchanges and VASPs.
 
 ---
 
@@ -26,21 +46,21 @@ RuleForge is a digital product marketplace that sells compliance monitoring temp
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│                    Next.js 15 App                     │
+│                   Next.js 15 App                     │
 ├──────────────┬──────────────┬────────────────────────┤
-│  Landing     │  Admin       │  API Routes            │
-│  Page        │  Dashboard   │                        │
+│   Landing    │    Admin     │      API Routes        │
+│    Page      │  Dashboard   │                        │
 │              │              │  /api/products         │
-│  • Dynamic   │  • Auth      │  /api/checkout         │
-│    product   │  • Product   │  /api/webhook          │
-│    display   │    CRUD      │  /api/download         │
-│  • Stripe    │  • Publish   │  /api/admin/*          │
-│    checkout  │    pipeline  │                        │
+│ • Dynamic    │ • Auth       │  /api/checkout         │
+│   product    │ • Product    │  /api/webhook          │
+│   display    │   CRUD       │  /api/download         │
+│ • Stripe     │ • Publish    │  /api/admin/*          │
+│   checkout   │   pipeline   │                        │
 └──────┬───────┴──────┬───────┴───────┬────────────────┘
        │              │               │
        ▼              ▼               ▼
-   Stripe API    Vercel Blob     Session Cookies
-                 Storage         (HTTP-only)
+  Stripe API    Vercel Blob     Session Cookies
+               Storage          (HTTP-only)
 ```
 
 ---
@@ -48,14 +68,14 @@ RuleForge is a digital product marketplace that sells compliance monitoring temp
 ## Tech Stack
 
 | Layer | Technology |
-|---|---|
+|-------|-----------|
 | Framework | Next.js 15 (App Router) |
 | Runtime | Serverless (Vercel) |
 | Payments | Stripe Checkout + Webhooks |
 | Storage | Vercel Blob |
 | Auth | Session cookies (HTTP-only, secure) |
 | Deployment | GitHub → Vercel auto-deploy |
-| Styling | Vanilla CSS (premium dark theme) |
+| Styling | Vanilla CSS (dark theme) |
 
 ---
 
@@ -64,30 +84,30 @@ RuleForge is a digital product marketplace that sells compliance monitoring temp
 ```
 ruleforge/
 ├── app/
-│   ├── page.js                    # Landing page (dynamic products)
-│   ├── categories.js              # Fallback product data
-│   ├── globals.css                # Design system
-│   ├── layout.js                  # Root layout + meta
-│   ├── download/page.js           # Post-purchase download page
+│   ├── page.js                  # Landing page (dynamic products)
+│   ├── categories.js            # Fallback product data
+│   ├── globals.css              # Design system
+│   ├── layout.js                # Root layout + meta
+│   ├── download/page.js         # Post-purchase download page
 │   ├── admin-panel/
-│   │   ├── page.js                # Admin dashboard
-│   │   └── login/page.js          # Admin login
+│   │   ├── page.js              # Admin dashboard
+│   │   └── login/page.js        # Admin login
 │   └── api/
-│       ├── products/route.js      # Public products API
-│       ├── checkout/route.js      # Stripe checkout sessions
-│       ├── webhook/route.js       # Stripe webhook handler
-│       ├── download/route.js      # Secure file downloads
+│       ├── products/route.js    # Public products API
+│       ├── checkout/route.js    # Stripe checkout sessions
+│       ├── webhook/route.js     # Stripe webhook handler
+│       ├── download/route.js    # Secure file downloads
 │       └── admin/
-│           ├── auth/route.js      # Login/logout/session
-│           ├── products/route.js  # Product CRUD
+│           ├── auth/route.js    # Login/logout/session
+│           ├── products/route.js # Product CRUD
 │           ├── templates/route.js # Template management
-│           ├── publish/route.js   # CSV export pipeline
-│           └── seed/route.js      # Initial data upload
+│           ├── publish/route.js  # CSV export pipeline
+│           └── seed/route.js    # Initial data upload
 ├── lib/
-│   ├── auth.js                    # Authentication system
-│   └── storage.js                 # Vercel Blob abstraction
+│   ├── auth.js                  # Authentication system
+│   └── storage.js               # Vercel Blob abstraction
 └── public/
-    └── data/                      # Generated CSV templates
+    └── data/                    # Generated CSV templates
 ```
 
 ---
@@ -103,7 +123,7 @@ ruleforge/
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/your-username/ruleforge.git
+git clone https://github.com/garbis-darie/ruleforge.git
 cd ruleforge
 npm install
 ```
@@ -137,7 +157,7 @@ git push origin main
 ## Environment Variables
 
 | Variable | Purpose |
-|---|---|
+|----------|---------|
 | `STRIPE_SECRET_KEY` | Stripe API key for payment processing |
 | `STRIPE_WEBHOOK_SECRET` | Stripe webhook signature verification |
 | `ADMIN_USER` | Admin panel username |
@@ -151,9 +171,19 @@ git push origin main
 
 - **Secret URL** — Admin panel accessible only via unguessable UUID path
 - **Session cookies** — HTTP-only, secure, SameSite=Lax
-- **Credential hashing** — Passwords validated server-side
+- **Credential validation** — Passwords validated server-side via environment variables
 - **Webhook verification** — Stripe signatures verified before processing
-- **No client-side secrets** — All sensitive operations happen in API routes
+- **No client-side secrets** — All sensitive operations handled in API routes
+
+---
+
+## About the Builder
+
+Built by **[Garbis Darie](https://linkedin.com/in/garbis-darie)** — a Transaction Monitoring Analyst with 4+ years of experience in Virtual Assets compliance, specialising in Chainalysis KYT, TRM Labs, and Crystal Blockchain.
+
+RuleForge represents the intersection of deep compliance expertise and full-stack product development. The platform was conceived, designed, and built entirely from an operational compliance perspective — addressing real gaps in how AML teams access and deploy transaction monitoring configuration.
+
+→ [LinkedIn](https://linkedin.com/in/garbis-darie) | [GitHub Portfolio](https://github.com/garbis-darie)
 
 ---
 
