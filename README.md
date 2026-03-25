@@ -8,6 +8,32 @@
 
 ---
 
+## Evidence Labels
+
+- `Measured` (qualified): deployment-context outcomes summarized with bounded phrasing.
+- `Synthetic-benchmark`: reproducible scenario outputs from synthetic datasets.
+- `Illustrative`: architecture and conceptual examples.
+
+## Decision Model Encoded Here
+
+RuleForge codifies monitoring governance that often stays undocumented in analyst intuition:
+
+- severity architecture by exposure type, direction, and value
+- threshold change-control with explicit rationale and rollback triggers
+- simulation-first updates before production rollout
+- provider-agnostic policy logic with adapter-based integrations
+
+## Proof Chain
+
+- Claim: governance-first monitoring design improves consistency and audit defensibility.
+- Method: versioned templates, simulation workflows, and structured change-control.
+- Dataset: qualified implementation context + synthetic benchmark examples.
+- Result: clearer approvals, reduced policy drift, repeatable control updates.
+- Limitations: outcomes depend on data quality, team workflow, and escalation standards.
+- Reproducibility: see linked synthetic policy impact examples.
+
+---
+
 ## What RuleForge Solves
 
 Transaction monitoring teams at VASPs face a recurring problem: alert thresholds are set once and rarely updated, leading to high false positive rates and missed risks as the business scales.
@@ -15,8 +41,8 @@ Transaction monitoring teams at VASPs face a recurring problem: alert thresholds
 RuleForge is the product built to fix that. It provides a structured, versioned, auditable system for managing KYT rule templates — with a governance layer that supports regulatory review.
 
 **Built from real-world deployment results:**
-- ~20% reduction in false positive rates across multiple VASP deployments
-- ~30% faster alert review times through structured severity classification
+- up to ~20% reduction in false positive rates across qualified VASP contexts
+- up to ~30% faster alert review times through structured severity classification
 - Compatible with Chainalysis KYT, TRM Labs, Crystal Blockchain, and Fireblocks post-screening
 - Deployed across 10+ VASP profiles (retail exchange, OTC desk, DeFi protocol, neobank)
 
@@ -62,6 +88,12 @@ The rule logic in RuleForge is based on a methodology developed and validated ac
 **VASP Profile Taxonomy** — Pre-calibrated threshold starting points for 5 VASP archetypes, reducing initial setup time by 30%.
 
 > Full methodology documentation: [docs/methodology.md](./docs/methodology.md)
+>
+> Evidence ledger: [docs/evidence-ledger.md](./docs/evidence-ledger.md)
+>
+> Change-control template: [docs/change-control-template.md](./docs/change-control-template.md)
+>
+> Synthetic policy impact examples: [examples/policy-impact/README.md](./examples/policy-impact/README.md)
 
 ---
 
@@ -133,6 +165,14 @@ NEXTAUTH_SECRET=...
 - Admin panel is session-protected with HTTP-only, Secure, SameSite=Lax cookies
 - All secrets via environment variables — no hardcoded credentials
 - Webhook signatures verified on all Stripe events
+
+---
+
+## Guardrails
+
+- Public metrics are qualified context and not universal guarantees.
+- Synthetic examples are explicitly labeled and reproducible.
+- RuleForge outputs are decision support and do not constitute legal advice.
 
 ---
 
