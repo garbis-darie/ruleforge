@@ -23,6 +23,7 @@ This ledger separates public claims by evidence class so readers can assess cred
 - Use `up to ~X%` only for qualified measured contexts.
 - Use `in synthetic benchmark conditions` for simulated outputs.
 - Never blend measured and synthetic outcomes in one sentence.
+- Synthetic benchmark claims should cite dataset seed, scenario config, and output artifact path where possible.
 
 ## Validation Backlog
 

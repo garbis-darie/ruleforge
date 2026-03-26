@@ -1,0 +1,11 @@
+{
+  "name": "ruleforge-golden-dataset",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.js --out ./data/golden-seed-42.json",
+    "benchmark": "node scripts/benchmark.js --input ./data/golden-seed-42.json --scenarios ./config/scenarios.json --out ./outputs/benchmark-golden-seed-42.json",
+    "validate": "node scripts/validate.js --input ./data/golden-seed-42.json"
+  }
+}

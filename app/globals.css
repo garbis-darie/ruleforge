@@ -929,6 +929,38 @@ a {
     color: var(--text-secondary);
 }
 
+/* === Legal Pages === */
+.legal-page {
+    min-height: 100vh;
+    padding: 120px 0 80px;
+}
+
+.legal-container {
+    max-width: 760px;
+}
+
+.legal-container h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.legal-container h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 26px 0 8px;
+}
+
+.legal-container p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.legal-container a {
+    color: var(--accent-bright);
+}
+
 /* === Responsive === */
 @media (max-width: 768px) {
     .nav-links {

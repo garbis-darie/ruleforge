@@ -20,6 +20,7 @@ export const dynamic = 'force-dynamic';
 export default async function Home() {
     const { categories, fullPackPrice, enterprisePrice } = await getProducts();
     const totalRules = categories.reduce((sum, c) => sum + (c.rules || 0), 0);
+    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@ruleforge.io';
 
     return (
         <>
@@ -28,7 +29,7 @@ export default async function Home() {
                 <div className="nav-inner">
                     <a href="/" className="nav-logo">
                         <span className="logo-icon">◈</span>
-                        <span className="logo-text">LINK <span className="logo-accent">KYT</span></span>
+                        <span className="logo-text">Rule<span className="logo-accent">Forge</span></span>
                     </a>
                     <div className="nav-links">
                         <a href="#features">Features</a>
@@ -168,7 +169,7 @@ export default async function Home() {
                 <div className="container">
                     <div className="section-label">Pricing</div>
                     <h2 className="section-title">Straightforward Pricing. No Surprises.</h2>
-                    <p className="section-sub">One-time purchase. No subscriptions. Download and own forever.</p>
+                    <p className="section-sub">Single and Full Pack are one-time purchases. Enterprise includes annual update support.</p>
                     <div className="pricing-grid">
                         <div className="price-card">
                             <div className="price-tier">Single Category</div>
@@ -204,7 +205,7 @@ export default async function Home() {
                         <div className="price-card">
                             <div className="price-tier">Enterprise</div>
                             <div className="price-amount"><span className="price-currency">£</span><span className="price-value">{enterprisePrice / 100}</span></div>
-                            <p className="price-desc">Everything in Full Pack plus structured data and ongoing updates.</p>
+                            <p className="price-desc">Everything in Full Pack plus structured data and annual update support.</p>
                             <ul className="price-features">
                                 <li><strong>Everything in Full Pack</strong></li>
                                 <li>Machine-readable data formats</li>
@@ -212,7 +213,32 @@ export default async function Home() {
                                 <li>Priority email support</li>
                                 <li>Custom calibration guidance</li>
                             </ul>
-                            <a href="mailto:hello@example.com?subject=LINK%20KYT%20Enterprise" className="btn btn-outline">Contact Us</a>
+                            <a href={`mailto:${contactEmail}?subject=RuleForge%20Enterprise`} className="btn btn-outline">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Why Paid */}
+            <section className="problem">
+                <div className="container">
+                    <div className="section-label">Why Teams Pay</div>
+                    <h2 className="section-title">The Value Is in Defensible Decisions</h2>
+                    <div className="problem-grid">
+                        <div className="problem-card">
+                            <div className="problem-icon">🧭</div>
+                            <h3>Governance, Not Just Rules</h3>
+                            <p>Each template ships with rationale, severity logic, and citations so changes can be reviewed and defended under audit pressure.</p>
+                        </div>
+                        <div className="problem-card">
+                            <div className="problem-icon">⚡</div>
+                            <h3>Faster Time-to-Operational</h3>
+                            <p>Pre-calibrated starting points and import-ready formats cut setup time, so teams spend less time configuring and more time investigating.</p>
+                        </div>
+                        <div className="problem-card">
+                            <div className="problem-icon">🔁</div>
+                            <h3>Update Path Included</h3>
+                            <p>Enterprise includes 12-month regulatory update coverage so threshold logic can evolve without policy drift.</p>
                         </div>
                     </div>
                 </div>
@@ -229,7 +255,7 @@ export default async function Home() {
                         <details className="faq-item"><summary>Which regulations are the thresholds based on?</summary><p>Rules are derived from FATF Recommendations, FinCEN advisories, FCA guidance, and EU AMLD provisions. Each rule includes its regulatory citation in the governance documentation.</p></details>
                         <details className="faq-item"><summary>Can I import the CSV rules into any TMS?</summary><p>Yes. The CSV format uses standard fields (Rule, Severity, Category, Direction, Exposure, Min/Max amounts, Window, Count) that can be mapped to any transaction monitoring system including Chainalysis KYT, Elliptic, and custom platforms.</p></details>
                         <details className="faq-item"><summary>Do you offer refunds?</summary><p>Due to the digital nature of the product, we do not offer refunds once files have been downloaded. Please review the category descriptions carefully before purchasing.</p></details>
-                        <details className="faq-item"><summary>What&#39;s included in the Enterprise 12-month update guarantee?</summary><p>Enterprise customers receive updated rule sets whenever we revise thresholds based on new regulatory guidance, enforcement actions, or emerging typologies. Updates are delivered via email.</p></details>
+                        <details className="faq-item"><summary>What&#39;s included in the Enterprise 12-month update guarantee?</summary><p>Enterprise customers receive updated rule sets whenever we revise thresholds based on new regulatory guidance, enforcement actions, or emerging typologies. Updates are delivered via email and include release notes for change tracking.</p></details>
                     </div>
                 </div>
             </section>
@@ -251,7 +277,7 @@ export default async function Home() {
                 <div className="container">
                     <div className="footer-inner">
                         <div className="footer-brand">
-                            <span className="logo-text">◈ LINK <span className="logo-accent">KYT</span></span>
+                            <span className="logo-text">◈ Rule<span className="logo-accent">Forge</span></span>
                             <p className="footer-tagline">Transaction monitoring thresholds, ready to deploy.</p>
                         </div>
                         <div className="footer-links">

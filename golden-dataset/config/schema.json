@@ -1,0 +1,33 @@
+{
+  "version": "v1",
+  "spec": "RuleForge Synthetic Dataset Spec v1",
+  "required": [
+    { "field": "alert_id",          "type": "string"  },
+    { "field": "entity_id",         "type": "string"  },
+    { "field": "timestamp",         "type": "string"  },
+    { "field": "typology",          "type": "string"  },
+    { "field": "rule_id",           "type": "string"  },
+    { "field": "amount_usd",        "type": "number"  },
+    { "field": "direction",         "type": "string"  },
+    { "field": "hop_distance",      "type": "integer" },
+    { "field": "risk_score_raw",    "type": "number"  },
+    { "field": "threshold_value",   "type": "number"  },
+    { "field": "filed_sar",         "type": "boolean" },
+    { "field": "days_to_disposition","type": "number"  }
+  ],
+  "recommended": [
+    { "field": "is_true_positive",    "type": "boolean" },
+    { "field": "counterparty_id",     "type": "string"  },
+    { "field": "counterparty_cluster","type": "string"  },
+    { "field": "window_id",           "type": "string"  },
+    { "field": "notes",               "type": "string"  }
+  ],
+  "metadata_required": [
+    "label",
+    "seed",
+    "generator_version",
+    "dataset_spec",
+    "scenario_profile",
+    "generated_at"
+  ]
+}

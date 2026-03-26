@@ -40,9 +40,12 @@ Use this template for any policy or threshold update to keep decisions auditable
 ## Validation Plan
 
 - Simulation dataset reference:
+- Benchmark seed / run ID:
+- Scenario config reference:
 - Baseline window:
 - Success criteria:
 - Watchlist metrics (first 2-4 weeks post-change):
+- Evidence class: `Synthetic-benchmark` / `Measured`
 
 ## Rollback Plan
 

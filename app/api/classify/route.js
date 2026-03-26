@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { scoreExposure } from '@/lib/exposure';
-import { classifyAlert, DEFAULT_CONFIG } from '@/lib/severity';
+import { scoreExposure } from '../../../lib/exposure';
+import { classifyAlert, DEFAULT_CONFIG } from '../../../lib/severity';
 
 /**
  * POST /api/classify

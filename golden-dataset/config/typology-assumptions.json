@@ -1,0 +1,109 @@
+{
+  "typologies": [
+    {
+      "id": "structuring_pattern",
+      "weight": 22,
+      "base_score": 49,
+      "jitter": [-15, 15],
+      "sar_bias": 0.06,
+      "value_range_usd": [500, 12000],
+      "direction_weights": [
+        { "value": "outbound", "weight": 75 },
+        { "value": "inbound", "weight": 25 }
+      ],
+      "hop_distance_weights": [
+        { "value": 0, "weight": 85 },
+        { "value": 1, "weight": 15 }
+      ],
+      "notes": "Clusters amounts near anchor thresholds. Suspiciousness from repetition and boundary behavior."
+    },
+    {
+      "id": "rapid_in_out",
+      "weight": 24,
+      "base_score": 52,
+      "jitter": [-18, 18],
+      "sar_bias": 0.07,
+      "value_range_usd": [800, 90000],
+      "direction_weights": [
+        { "value": "inbound", "weight": 50 },
+        { "value": "outbound", "weight": 50 }
+      ],
+      "hop_distance_weights": [
+        { "value": 0, "weight": 70 },
+        { "value": 1, "weight": 20 },
+        { "value": 2, "weight": 10 }
+      ],
+      "notes": "Tight inflow/outflow sequences. Pass-through or mule-style activity."
+    },
+    {
+      "id": "mixer_indirect",
+      "weight": 18,
+      "base_score": 62,
+      "jitter": [-18, 18],
+      "sar_bias": 0.11,
+      "value_range_usd": [2000, 180000],
+      "direction_weights": [
+        { "value": "inbound", "weight": 65 },
+        { "value": "outbound", "weight": 35 }
+      ],
+      "hop_distance_weights": [
+        { "value": 1, "weight": 35 },
+        { "value": 2, "weight": 30 },
+        { "value": 3, "weight": 20 },
+        { "value": 4, "weight": 15 }
+      ],
+      "notes": "Indirect exposure via mixer intermediaries. Risk decays by hop distance."
+    },
+    {
+      "id": "high_risk_jurisdiction",
+      "weight": 20,
+      "base_score": 57,
+      "jitter": [-16, 16],
+      "sar_bias": 0.09,
+      "value_range_usd": [1500, 140000],
+      "direction_weights": [
+        { "value": "inbound", "weight": 55 },
+        { "value": "outbound", "weight": 45 }
+      ],
+      "hop_distance_weights": [
+        { "value": 0, "weight": 60 },
+        { "value": 1, "weight": 30 },
+        { "value": 2, "weight": 10 }
+      ],
+      "notes": "Jurisdiction-linked elevated baseline risk. Moderate signal quality."
+    },
+    {
+      "id": "sanctions_exposure",
+      "weight": 16,
+      "base_score": 78,
+      "jitter": [-12, 12],
+      "sar_bias": 0.24,
+      "value_range_usd": [5000, 500000],
+      "direction_weights": [
+        { "value": "inbound", "weight": 60 },
+        { "value": "outbound", "weight": 40 }
+      ],
+      "hop_distance_weights": [
+        { "value": 0, "weight": 70 },
+        { "value": 1, "weight": 25 },
+        { "value": 2, "weight": 5 }
+      ],
+      "notes": "Direct or near-direct exposure to flagged entities. Highest baseline severity."
+    }
+  ],
+  "rules": [
+    { "value": "D-IB-1", "weight": 18, "threshold": 35 },
+    { "value": "D-IB-2", "weight": 16, "threshold": 45 },
+    { "value": "D-IB-3", "weight": 14, "threshold": 55 },
+    { "value": "S-OFAC-1", "weight": 10, "threshold": 70 },
+    { "value": "T-VELO-2", "weight": 17, "threshold": 40 },
+    { "value": "T-VAL-3", "weight": 15, "threshold": 60 },
+    { "value": "E-ENTITY-2", "weight": 10, "threshold": 50 }
+  ],
+  "score_bias_tiers": [
+    { "min_score": 80, "bias": 0.22 },
+    { "min_score": 65, "bias": 0.10 },
+    { "min_score": 50, "bias": 0.04 },
+    { "min_score": 0,  "bias": -0.01 }
+  ]
+}

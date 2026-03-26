@@ -93,7 +93,62 @@ The rule logic in RuleForge is based on a methodology developed and validated ac
 >
 > Change-control template: [docs/change-control-template.md](./docs/change-control-template.md)
 >
+> Synthetic dataset spec: [docs/synthetic-dataset-spec-v1.md](./docs/synthetic-dataset-spec-v1.md)
+>
+> Validation protocol: [docs/validation-protocol-v1.md](./docs/validation-protocol-v1.md)
+>
+> Recruiter-friendly case study: [docs/synthetic-validation-case-study.md](./docs/synthetic-validation-case-study.md)
+>
 > Synthetic policy impact examples: [examples/policy-impact/README.md](./examples/policy-impact/README.md)
+
+---
+
+## Product Management Evidence
+
+For recruiters, hiring managers, and collaborators evaluating PM capability:
+
+- Product operating pack: [docs/product/README.md](./docs/product/README.md)
+- Problem statement (ICP + JTBD): [docs/product/problem-statement.md](./docs/product/problem-statement.md)
+- Roadmap (Now / Next / Later): [docs/product/roadmap-now-next-later.md](./docs/product/roadmap-now-next-later.md)
+- Success metrics and instrumentation: [docs/product/success-metrics.md](./docs/product/success-metrics.md)
+- Decision and experiment logs: [docs/product/decision-log.md](./docs/product/decision-log.md), [docs/product/experiment-log.md](./docs/product/experiment-log.md)
+
+## AI-Native Build Quality
+
+RuleForge is built with AI acceleration and human governance:
+
+- AI used for drafting, implementation support, and fast iteration
+- Human-owned release decisions for compliance-sensitive changes
+- Explicit evidence labels to bound claims and avoid overstatement
+- Verification-first workflow (build checks before shipping)
+
+---
+
+## Benchmark Validation Link (`kyt-policy-bench`)
+
+RuleForge policy logic can be validated in a controlled benchmark loop using the companion repository `kyt-policy-bench`.
+
+How they connect:
+
+1. Generate deterministic synthetic alert streams with `tm-alert-simulator`.
+2. Encode RuleForge policy variants as benchmark scenarios (baseline vs candidate thresholds).
+3. Run `kyt-policy-bench` to compare workload and detection tradeoffs before rollout.
+4. Feed benchmark outputs into RuleForge change-control decisions and evidence records.
+
+Suggested proof flow:
+
+`tm-alert-simulator` -> `kyt-policy-bench` -> RuleForge change-control approval.
+
+Why this matters:
+
+- Demonstrates that policy changes are tested, not guessed.
+- Makes threshold updates reproducible and auditable.
+- Supports a simulation-first governance model for AML/CTF pattern handling.
+- Keeps synthetic data governed through a canonical dataset standard and sub-agent review flow.
+- Full protocol: [docs/validation-protocol-v1.md](./docs/validation-protocol-v1.md)
+- Dataset standard: [docs/synthetic-dataset-spec-v1.md](./docs/synthetic-dataset-spec-v1.md)
+- Golden dataset package: [golden-dataset/README.md](./golden-dataset/README.md)
+- Fast proof narrative: [docs/synthetic-validation-case-study.md](./docs/synthetic-validation-case-study.md)
 
 ---
 
