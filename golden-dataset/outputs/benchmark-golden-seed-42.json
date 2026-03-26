@@ -4,7 +4,7 @@
     "scenarios": "/Users/bw/Documents/CV/gd-portfolio-github/ruleforge/golden-dataset/config/scenarios.json",
     "dataset_seed": 42,
     "dataset_spec": "RuleForge Synthetic Dataset Spec v1",
-    "generated_at": "2026-03-26T19:32:52.220Z",
+    "generated_at": "2026-03-26T22:34:44.341Z",
     "label": "Synthetic-benchmark"
   },
   "totals": {
